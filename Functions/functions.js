@@ -20,4 +20,12 @@ let fun = function(){// also called anonymous function (un-named)
 
 fun();
 
+// passing values : arguments and parameters
+
+let passValues = function(parameter="Default Value"){
+    console.log("paased", parameter);
+}
+passValues();
+passValues("argument","argument 2");
+
 
