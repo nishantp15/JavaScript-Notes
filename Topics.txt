@@ -1,0 +1,14 @@
+Function and Function Expression
+IIFE
+Higher Order Function - Call Backs
+Hoistiong
+"THis" Keyword
+Constructor and NEW operator
+Prototypes
+Prototypical inheritance
+ES6 Classes
+setters and getters
+static methods
+Class Inheritance
+Inheritance by Prototypes
+Chaining of methods
