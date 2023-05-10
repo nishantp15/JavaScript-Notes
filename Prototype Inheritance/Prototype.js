@@ -78,3 +78,15 @@ function c(){
 console.log(c.__proto__)
 console.log(c.__proto__.__proto__)
 
+var arr = [1,2,3,4]
+
+Array.prototype.myPrint = function(){
+    console.log("new prototype")
+}
+
+arr.myPrint() // a new prototype is added
+
+// Function inherits from function prototype
+// function > function prototype > object prototype > null
+//  arr > array prototype > object prototype > null
+

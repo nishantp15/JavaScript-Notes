@@ -134,12 +134,14 @@ console.log(p3)
 // function test(n){
 //     console.log(n)
 // }
-// // executeTest wont execute as it is not a fucntion coz the function is assigned to variable
-// var executeTest = test(5);
+
+// executeTest wont execute as it is not a fucntion coz the function is assigned to variable and no value is return
+// and that is why by default undefined is returned. But if we return something then the value will be logged.
+// var executeTest = test(5); 
 // executeTest() 
 
-// // but now it will execute
-// var executeTest1 = test;
+// // but now it will execute 
+// var executeTest1 = test; 
 // executeTest1(7) 
 
 // var x = function test1(n){
