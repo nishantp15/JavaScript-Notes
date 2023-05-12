@@ -1,5 +1,21 @@
 // Constructor function is used to create Objects in JavaScript.
 // It dynamically creates Object
+
+var ob = {
+    obj:"test"
+} // this is called object literal
+
+function objectCreate(n,a){
+    let x = {};
+    x.name = n;
+    x.age = a;
+    return x // if we do not return, output will be undefined
+}
+
+let y = objectCreate("nishant", 22)
+
+console.log(y)
+
 console.log(this)
 
 var person = {
@@ -58,6 +74,18 @@ This();
 // "new": constructor for new object, it creates objects
 // "this": for creating dynamic values
 
+// "new" keyword
+
+function TestValue1(){
+    // return 5
+}
+
+var testNew = new TestValue1(); // new keyword generates an object
+console.log(testNew);
+
+
+// Example 1
+
 function Player(n, t){
     this.name = n;
     this.team = t;
@@ -84,6 +112,24 @@ function PlayerEx(n,t){
 }
 
 PlayerEx("a","b").myplayerEx()
+
+
+// example 2
+
+function Student1(n, t){
+    // this.name = n;
+    this.team = t;
+    this.print = function(){
+        console.log(this)
+    }
+}
+
+var myStudent1 = new Student1("Dhoni","India")
+
+var studentValue = myStudent1.print
+
+studentValue()
+
 
 
 // call apply bind
