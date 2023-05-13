@@ -1,10 +1,10 @@
 console.log(this);
 
 function a(){
-    console.log(this);
+    // console.log(this);
    this.obj = {name:"x"}
     function b(){
-        this.obj = 'y'
+        this.name = 'jhbv'
         console.log(this.obj);
     }
     b();

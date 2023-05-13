@@ -2,45 +2,44 @@
 // It dynamically creates Object
 
 var ob = {
-    obj:"test"
-} // this is called object literal
+  obj: "test",
+}; // this is called object literal
 
-function objectCreate(n,a){
-    let x = {};
-    x.name = n;
-    x.age = a;
-    return x // if we do not return, output will be undefined
+function objectCreate(n, a) {
+  let x = {};
+  x.name = n;
+  x.age = a;
+  return x; // if we do not return, output will be undefined
 }
 
-let y = objectCreate("nishant", 22)
+let y = objectCreate("nishant", 22);
 
-console.log(y)
+console.log(y);
 
-console.log(this)
+console.log(this);
 
 var person = {
-    name:"John",
-    myName:function(){
-        console.log(person.name)
-    }
-}
+  name: "John",
+  myName: function () {
+    console.log(person.name);
+  },
+};
 
 person.myName(); //here owner is "person" variable
 
 // when we write a function inside N object is called function method
 
 var person2 = {
-    name:"John",
-    myName:function(){
-        console.log(person2.name); //here every time owner object has to be changed
-    }
-}
+  name: "John",
+  myName: function () {
+    console.log(person2.name); //here every time owner object has to be changed
+  },
+};
 
-person2.myName(); 
+person2.myName();
 
 // to avoid changing owner object everytime we create a new object is difficult and
 // hence here comes another way of writing an object
-
 
 // use of "this" keyword
 
@@ -48,18 +47,18 @@ person2.myName();
 // indicate to global object i.e. "window" object
 
 var person3 = {
-    name:"John",
-    myName:function(){
-        console.log(this.name)
-    }
-}
+  name: "John",
+  myName: function () {
+    console.log(this.name);
+  },
+};
 
 person3.myName();
 
 //if there is no owner object then "this"indicate to "window" object, Example:
 
-function This(){
-    console.log(this)
+function This() {
+  console.log(this);
 }
 
 This();
@@ -76,25 +75,24 @@ This();
 
 // "new" keyword
 
-function TestValue1(){
-    // return 5
+function TestValue1() {
+  // return 5
 }
 
 var testNew = new TestValue1(); // new keyword generates an object
 console.log(testNew);
 
-
 // Example 1
 
-function Player(n, t){
-    this.name = n;
-    this.team = t;
+function Player(n, t) {
+  this.name = n;
+  this.team = t;
 }
 
-var myPlayer = new Player("Dhoni","India")
-var myPlayer2 = new Player("Harry","Hogwarts")
+var myPlayer = new Player("Dhoni", "India");
+var myPlayer2 = new Player("Harry", "Hogwarts");
 
-console.log(myPlayer2) // value will be undefined with the use of new Keyword
+console.log(myPlayer2); // value will be undefined with the use of new Keyword
 
 //  Note: although "this" refers to global object in a standalone function but
 //  when we use "new" keyword and bind that function with "new", then "new"
@@ -102,78 +100,71 @@ console.log(myPlayer2) // value will be undefined with the use of new Keyword
 //  "this" refers to assigned values locally inside the objec. Here "myPlayer" is
 //  an object and values can be retrived by using noemal Key:Value pair
 
-
-function PlayerEx(n,t){
-   return {myplayerEx:function(){
-    this.name = n,
-    this.team = t,
-    console.log(this)
-   }}
+function PlayerEx(n, t) {
+  return {
+    myplayerEx: function () {
+      (this.name = n), (this.team = t), console.log(this);
+    },
+  };
 }
 
-PlayerEx("a","b").myplayerEx()
-
+PlayerEx("a", "b").myplayerEx();
 
 // example 2
 
-function Student1(n, t){
-    // this.name = n;
-    this.team = t;
-    this.print = function(){
-        console.log(this)
-    }
+function Student1(n, t) {
+  // this.name = n;
+  this.team = t;
+  this.print = function () {
+    console.log(this);
+  };
 }
 
-var myStudent1 = new Student1("Dhoni","India")
+var myStudent1 = new Student1("Dhoni", "India");
 
-var studentValue = myStudent1.print
+var studentValue = myStudent1.print;
 
-studentValue()
-
-
+studentValue();
 
 // call apply bind
 
 var p1 = {
-    name:"abc"
-}
+  name: "abc",
+};
 
 var p2 = {
-    name:"def"
-}
+  name: "def",
+};
 
 var p3 = {
-    name:"ghi"
-}
+  name: "ghi",
+};
 
-function myName(age, city){
-    this.age = age
-    this.city = city
-    // console.log(this.name, age)
+function myName(age, city) {
+  this.age = age;
+  this.city = city;
+  // console.log(this.name, age)
 }
 
 // cal provide new value of "this" to a method
 
-myName.call(p1) // this = p1, Call is just a function and arguments can be passed to myName using call
-myName.call(p1,"22", "pune")
-console.log(p1)
+myName.call(p1); // this = p1, Call is just a function and arguments can be passed to myName using call
+myName.call(p1, "22", "pune");
+console.log(p1);
 
 // apply: in apply arguments are passed as array
 
-myName.apply(p2,["22", "Delhi"])
-console.log(p2)
+myName.apply(p2, ["22", "Delhi"]);
+console.log(p2);
 
 // bind : to use the arguments at later stage while call and apply executed immediatly
 
-var myBind = myName.bind(p3,"24", "Mumbai") // no array
-console.log(p3)
+var myBind = myName.bind(p3, "24", "Mumbai"); // no array
+console.log(p3);
 myBind();
-console.log(p3)
+console.log(p3);
 
 // ??? Q ??? why function are constructors in JS
-
-
-
 
 // Note:
 
@@ -183,12 +174,12 @@ console.log(p3)
 
 // executeTest wont execute as it is not a fucntion coz the function is assigned to variable and no value is return
 // and that is why by default undefined is returned. But if we return something then the value will be logged.
-// var executeTest = test(5); 
-// executeTest() 
+// var executeTest = test(5);
+// executeTest()
 
-// // but now it will execute 
-// var executeTest1 = test; 
-// executeTest1(7) 
+// // but now it will execute
+// var executeTest1 = test;
+// executeTest1(7)
 
 // var x = function test1(n){
 //     console.log(n)
